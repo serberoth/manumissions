@@ -27,8 +27,10 @@ This document will outline how to setup a developer / local environment for the 
         - Create a secret key that is unique to your system, using a phrase or otherwise.
         - Be sure to use the database host and port configured for your local setup.
         - Be sure to use the database name, user, and user password from the previous configuration step.
-1) Execute the database table migrations.
+1) Execute the database table migrations.  Choose one of these two options:
     * Run `python manage.py migrate` to migrate the database tables locally.  This will create a series of empty tables the project requires.
+    * Alternatively you can execute `psql manumissions < testing/manumissions-20241023.dump` to deploy the dated production backup to the database.
+        - Depending on the lifetime of this project and how often the tables are updated with content, it is recommended that a periodic dump of the production database tables is taken.
 1) Run `python manage.py runserver` to start the app server locally.
 1) You should be able to connect to the local server at http://127.0.0.1:8000/
     * Verify that the site is being served correctly.
